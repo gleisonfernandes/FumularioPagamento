@@ -1,0 +1,45 @@
+.shadow-sm {
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+    filter: drop-shadow( 0 .125rem .25rem #a40be855);
+    width: 86%;
+    border-radius: 10px;
+}
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    width: 100%;
+    padding-right: var(--bs-gutter-x,.0rem);
+    padding-left: var(--bs-gutter-x,.0rem);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.formCard{
+    background: #fff;
+    padding-bottom: 30px;
+    border-radius: 20px;
+    margin: 0;
+    box-shadow: 0px 0px 8px 1px #999;
+}
+
+@keyframes shimmer-animation {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  } 
+@media (max-width: 768px) {
+    .shadow-sm {
+        width: 100%;
+    }
+}
+.creditCard{
+    margin-left: 10px;
+    margin-top: 25px;
+}
+.w-100 {
+    margin-top: 20px;
+}
+.mb-1 {
+    color: #000000;
+}

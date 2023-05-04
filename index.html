@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+  
+    <title>Checkout</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+ 
+    <link href="css/form-validation.css" rel="stylesheet">
+    <link href="css/card.css" rel="stylesheet">
+  </head>
+  <body class="bg-light">
+    
+    <div class="container">
+      <main>
+        <div class="py-5 text-center">
+          <h2>Formulário de pagamento</h2>
+        </div>
+
+        <div class="row g-5 formCard">
+          <div class="col-md-5  order-md-last">
+            <div class="col-md-12">
+              <h4 class="mb-3">
+                Seu cartão
+              </h4>
+              <div id="card" class="card shadow-sm">
+                <div class="card-body creditCard">
+                  <img class="card-text" src='img/chip.svg' style='width:45px;'>
+                  <img class="card-text" src='img/contactless.png' style='width:45px;'>
+                  <p class="card-text" id="card-number"></p>
+                  <p class="card-text" id="validThru"></p>
+                        
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div id="group" class="btn-group">
+                      <div class="card-text" id="card-nome"></div>
+                    </div>
+                    <div class="card-text" id="card-bandeira"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-7">
+            <form class="needs-validation" novalidate>
+              <h4 class="mb-3">Pagamento</h4>
+              <div class="row gy-3">
+                <div class="col-md-6">
+                  <label for="cc-name" class="form-label">Nome no cartão</label>
+                  <input type="text" class="form-control" id="nome" name="nome" onkeyup="verificarnome()" placeholder="JORGE F SILVA" required="">
+                  <small class="text-muted">Nome conforme exibido no cartão</small>
+                  <div class="invalid-feedback">
+                    Nome no cartão é necessário
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="cc-number" class="form-label">Número do cartão</label>
+                  <input type="text" class="form-control" id="numero" name="numero" onkeyup="criarMascara('numero'); verificarnumero();" maxlength="16" onkeypress="if (!isNaN(String.fromCharCode(window.event.keyCode))) return true; else return false;" placeholder="5555 5555 5555 5555" required="">
+                  <div class="invalid-feedback">
+                    Número do cartão é necessário
+                  </div>
+                </div>
+
+                <div class="col-md-3">
+                  <label for="cc-expiration" class="form-label">Expiração</label>
+                  <input type="text" class="form-control" id="validade" name="validade" onkeyup="criarMascara('validade'); verificarvalidade();" maxlength="4" onkeypress="if (!isNaN(String.fromCharCode(window.event.keyCode))) return true; else return false;" placeholder="MM/AA" required="">
+                  <div class="invalid-feedback">
+                    Expiração do cartão é necessário
+                  </div>
+                </div>
+
+                <div class="col-md-3">
+                  <label for="cc-cvv" class="form-label">CVV</label>
+                  <input type="text" class="form-control" id="cc-cvv" placeholder="123" maxlength="3" onkeypress="if (!isNaN(String.fromCharCode(window.event.keyCode))) return true; else return false;" required="">
+                  <div class="invalid-feedback">
+                    Código de segurança é necessário
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="cc-cvv" class="form-label">CPF do titular</label>
+                  <input type="text" class="form-control" id="cpf" name="cpf" onkeyup="criarMascara('cpf')" maxlength="11" onkeypress="if (!isNaN(String.fromCharCode(window.event.keyCode))) return true; else return false;" placeholder="555.555.555-55" required="">
+                  <div class="invalid-feedback">
+                    CPF é necessário
+                  </div>
+                </div>
+              </div>
+
+              <button class="w-100 btn btn-primary" type="submit">Continuar</button>
+
+            </form>
+          </div>
+        </div>
+
+      </main>
+
+      <footer class="my-5 pt-5 text-muted text-center text-small">
+        <p class="mb-1">Desenvolvedor: Gleison Fernandes da Silva</p>
+      </footer>
+    </div>
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+    <script src="js/form-validation.js"></script>
+
+    <script src="js/card.js"></script>
+    <script src="index.js"></script>
+  
+  
+  </body>
+
+</html>
